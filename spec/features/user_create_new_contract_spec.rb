@@ -3,10 +3,21 @@ require 'rails_helper'
 feature 'User create a new contract' do
   scenario 'successfuly' do
 
+    customer = Customer.create name: 'Wesley',
+                               cpf: '123123123456',
+                               address: 'Rua Pedro',
+                               phone: '21215454',
+                               cell: '95957676',
+                               rg: '415678956',
+                               email: 'teste@teste.com',
+                               birthdate: '21/09/2015'
+
+    equipment = Equipment.create name: 'Betoneira'
+
     visit new_contract_path
 
-    fill_in 'Customer', with: 'Sandro'
-    fill_in 'Equipment', with: 'Betoneira'
+    select 'Wesley', from: 'Customer'
+    select 'Betoneira', from: 'Equipment'
     fill_in 'Time', with: '3 dias'
     fill_in 'Payment method', with: 'Á vista'
     fill_in 'Devolution date', with: '05/10/2015'
@@ -14,7 +25,7 @@ feature 'User create a new contract' do
 
     click_on "Criar Contrato"
 
-    expect(page).to have_content "Sandro"
+    expect(page).to have_content "Wesley"
     expect(page).to have_content "Betoneira"
     expect(page).to have_content "3 dias"
     expect(page).to have_content "Á vista"

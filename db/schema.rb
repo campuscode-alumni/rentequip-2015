@@ -14,7 +14,6 @@
 ActiveRecord::Schema.define(version: 20151014003214) do
 
   create_table "contracts", force: :cascade do |t|
-    t.string   "customer"
     t.string   "equipment"
     t.string   "time"
     t.string   "payment_method"
@@ -22,6 +21,12 @@ ActiveRecord::Schema.define(version: 20151014003214) do
     t.string   "delivery_address"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.integer  "customer_id"
+  end
+
+  add_index "contracts", ["customer_id"], name: "index_contracts_on_customer_id"
+
+  create_table "contracts_equipments", force: :cascade do |t|
   end
 
   create_table "customers", force: :cascade do |t|
