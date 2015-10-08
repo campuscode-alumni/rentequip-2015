@@ -12,10 +12,12 @@ feature 'User create a new contract' do
                                email: 'teste@teste.com',
                                birthdate: '21/09/2015'
 
+    equipment = Equipment.create name: 'Betoneira'
+
     visit new_contract_path
 
     select 'Wesley', from: 'Customer'
-    fill_in 'Equipment', with: 'Betoneira'
+    select 'Betoneira', from: 'Equipment'
     fill_in 'Time', with: '3 dias'
     fill_in 'Payment method', with: 'Á vista'
     fill_in 'Devolution date', with: '05/10/2015'
