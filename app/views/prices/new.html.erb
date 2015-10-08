@@ -1,0 +1,6 @@
+<%= simple_form_for @price do |f| %>
+  <%= f.input :equipment %>
+  <%= f.input :time, collection: ['3 dias', '5 dias', 'semanal'] %>
+  <%= f.input :total %>
+  <%= f.button :submit, "Salvar Preço" %>
+<% end %>
