@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151007004610) do
+ActiveRecord::Schema.define(version: 20151008235533) do
 
   create_table "contracts", force: :cascade do |t|
     t.string   "customer"
@@ -36,5 +36,28 @@ ActiveRecord::Schema.define(version: 20151007004610) do
     t.string   "email"
     t.string   "birthdate"
   end
+
+  create_table "equipment", force: :cascade do |t|
+    t.string   "name"
+    t.string   "mark"
+    t.string   "supplier"
+    t.float    "price"
+    t.string   "model"
+    t.integer  "asset_number"
+    t.date     "purchased_at"
+    t.float    "acquisition_price"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  create_table "prices", force: :cascade do |t|
+    t.string   "time"
+    t.decimal  "total"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "equipment_id"
+  end
+
+  add_index "prices", ["equipment_id"], name: "index_prices_on_equipment_id"
 
 end
