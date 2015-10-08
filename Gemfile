@@ -31,6 +31,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'simplecov'
   gem 'rubocop', require: false
+  gem 'awesome_print'
 end
 
 group :development do
