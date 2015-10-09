@@ -1,6 +1,6 @@
 <%= simple_form_for @contract do |f| %>
   <%= f.association :customer %>
-  <%= f.association :equipment  %>
+  <%= f.association :equipment, as: :check_boxes  %>
   <%= f.input :time  %>
   <%= f.input :payment_method  %>
   <%= f.input :devolution_date %>

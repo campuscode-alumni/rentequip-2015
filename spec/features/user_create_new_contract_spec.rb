@@ -16,8 +16,8 @@ feature 'User create a new contract' do
 
     visit new_contract_path
 
-    select 'Wesley', from: 'Customer'
-    select 'Betoneira', from: 'Equipment'
+    select customer.name, from: 'Customer'
+    check 'Betoneira'
     fill_in 'Time', with: '3 dias'
     fill_in 'Payment method', with: 'Á vista'
     fill_in 'Devolution date', with: '05/10/2015'
@@ -25,7 +25,7 @@ feature 'User create a new contract' do
 
     click_on "Criar Contrato"
 
-    expect(page).to have_content "Wesley"
+    expect(page).to have_content customer.name
     expect(page).to have_content "Betoneira"
     expect(page).to have_content "3 dias"
     expect(page).to have_content "Á vista"

@@ -1,5 +1,7 @@
 <%= @contract.customer.name %>
-<%= @contract.equipment %>
+<% @contract.equipment.each do |e| %>
+  <%= e.name %>
+<% end %>
 <%= @contract.time %>
 <%= @contract.payment_method %>
 <%= @contract.devolution_date %>
