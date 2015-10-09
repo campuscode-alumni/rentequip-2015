@@ -1,5 +1,4 @@
 class RentalPeriodsController < ApplicationController
-
   def new
     @rental_period = RentalPeriod.new
   end
