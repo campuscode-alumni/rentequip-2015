@@ -14,7 +14,7 @@ feature "User create prices" do
     click_on 'Salvar Preço'
 
     expect(page).to have_content equipment.name
-    expect(page).to have_content '3 dias'
+    expect(page).to have_content 3
     expect(page).to have_content '150.0'
   end
 
