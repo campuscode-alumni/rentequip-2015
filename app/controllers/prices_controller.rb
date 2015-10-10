@@ -4,8 +4,8 @@ class PricesController < ApplicationController
   end
 
   def create
-    @price = Price.new(price_params)
-    if @price.save
+    @price = Price.create(price_params)
+    if @price.valid?
       redirect_to @price
     else
       flash.now[:error] = "Warning! All fields are mandatory."
@@ -19,11 +19,6 @@ class PricesController < ApplicationController
 
   private
   def price_params
-    params.require(:price).permit(
-      :equipment_id,
-      :time,
-      :total
-    )
+    params.require(:price).permit(:equipment_id, :time, :total)
   end
-
 end
