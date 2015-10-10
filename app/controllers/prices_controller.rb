@@ -5,7 +5,7 @@ class PricesController < ApplicationController
 
   def create
     @price = Price.create(price_params)
-    if @price.valid?
+    if @price.save
       redirect_to @price
     else
       flash.now[:error] = "Warning! All fields are mandatory."
