@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :equipment do
-    name "MyString"
+    name "Furadeira"
 mark "MyString"
 supplier "MyString"
 price 1.5
