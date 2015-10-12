@@ -71,4 +71,11 @@ ActiveRecord::Schema.define(version: 20151008235533) do
 
   add_index "prices", ["equipment_id"], name: "index_prices_on_equipment_id"
 
+  create_table "rental_periods", force: :cascade do |t|
+    t.string   "description"
+    t.integer  "period"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
 end
