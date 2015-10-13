@@ -16,7 +16,7 @@ class ContractsController < ApplicationController
 
   def contract_params
     params.require(:contract).permit(:customer_id,
-                                     :time,
+                                     :rental_period_id,
                                      :payment_method,
                                      :devolution_date,
                                      :delivery_address,

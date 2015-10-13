@@ -11,20 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151008235533) do
+ActiveRecord::Schema.define(version: 20151013014303) do
 
   create_table "contracts", force: :cascade do |t|
     t.string   "equipment"
-    t.string   "time"
     t.string   "payment_method"
-    t.string   "devolution_date"
+    t.date     "devolution_date"
     t.string   "delivery_address"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
     t.integer  "customer_id"
+    t.integer  "rental_period_id"
   end
 
   add_index "contracts", ["customer_id"], name: "index_contracts_on_customer_id"
+  add_index "contracts", ["rental_period_id"], name: "index_contracts_on_rental_period_id"
 
   create_table "contracts_equipment", force: :cascade do |t|
     t.integer "equipment_id"

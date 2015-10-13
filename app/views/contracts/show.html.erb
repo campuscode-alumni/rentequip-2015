@@ -2,7 +2,7 @@
 <% @contract.equipment.each do |e| %>
   <%= e.name %>
 <% end %>
-<%= @contract.time %>
+<%= @contract.rental_period.description %>
 <%= @contract.payment_method %>
 <%= @contract.devolution_date %>
 <%= @contract.delivery_address %>
