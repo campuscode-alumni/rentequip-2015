@@ -7,6 +7,9 @@ class CustomersController < ApplicationController
     @customer = Customer.new(customer_params)
     if @customer.save
       redirect_to @customer
+    else
+      flash.now[:error] = "Warning! All fields are mandatory."
+      render 'new'
     end
   end
 
