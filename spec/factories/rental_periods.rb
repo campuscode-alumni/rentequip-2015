@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :rental_period do
-    description "Furadeida de médio porte"
+    description "Vinte dias"
     period 20
   end
 end

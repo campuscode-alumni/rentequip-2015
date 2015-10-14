@@ -19,6 +19,6 @@ class PricesController < ApplicationController
 
   private
   def price_params
-    params.require(:price).permit(:equipment_id, :time, :total)
+    params.require(:price).permit(:equipment_id, :rental_period_id, :total)
   end
 end
