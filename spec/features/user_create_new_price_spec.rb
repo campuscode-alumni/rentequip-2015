@@ -27,5 +27,4 @@ feature "User create prices" do
 
     expect(page).to have_content 'Warning! All fields are mandatory.'
   end
-
 end

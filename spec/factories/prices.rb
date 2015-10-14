@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :price do
     equipment
-    time "MyString"
+    rental_period
     total "9.99"
   end
 end
