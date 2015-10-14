@@ -8,7 +8,7 @@ class SuppliersController < ApplicationController
     if @supplier.save
       redirect_to @supplier
     else
-      flash.now[:error] = "Warning! All fields are mandatory."
+      flash.now[:error] = "Warning! Name and CNPJ fields are mandatory."
       render 'new'
     end
   end

@@ -25,4 +25,11 @@ feature 'User create new supplier' do
     expect(page).to have_content '1234567890'
     expect(page).to have_content '1234567890'
   end
+
+  scenario 'unsuccessfuly' do
+    visit new_supplier_path
+
+    click_on 'Save'
+    expect(page).to have_content 'Warning! Name and CNPJ fields are mandatory.'
+  end
 end
