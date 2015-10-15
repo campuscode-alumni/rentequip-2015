@@ -6,5 +6,4 @@ class Contract < ActiveRecord::Base
   def devolution_date
     created_at.to_date + rental_period.period
   end
-
 end
