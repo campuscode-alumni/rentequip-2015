@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :contracts, only: [:new, :create, :show]
+  resources :contracts, only: [:new, :create, :show, :index]
   resources :customers, only: [:new, :create, :show, :index]
   resources :prices, only: [:new, :create, :show]
   resources :equipment, only: [:new, :create, :show, :index]

@@ -1,0 +1,4 @@
+<h1>CONTRATOS</h1>
+<% @contracts.each do |contract| %>
+  <%= link_to contract.customer.name, contract %>
+<% end %>
