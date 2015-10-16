@@ -15,11 +15,10 @@ class ContractsController < ApplicationController
   private
 
   def contract_params
-    params.require(:contract).permit(:customer,
-                                     :equipment,
-                                     :time,
+    params.require(:contract).permit(:customer_id,
+                                     :rental_period_id,
                                      :payment_method,
-                                     :devolution_date,
-                                     :delivery_address)
+                                     :delivery_address,
+                                     {:equipment_ids => []})
   end
 end

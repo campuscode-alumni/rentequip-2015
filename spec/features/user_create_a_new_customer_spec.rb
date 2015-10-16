@@ -20,7 +20,6 @@ feature 'User create a new customer' do
     expect(page).to have_content '11 999999999'
     expect(page).to have_content '11 888888888'
     expect(page).to have_content '01/01/2001'
-
   end
 
   scenario 'unsuccesfuly' do

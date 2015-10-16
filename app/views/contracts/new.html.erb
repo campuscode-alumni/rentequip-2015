@@ -1,9 +1,8 @@
 <%= simple_form_for @contract do |f| %>
-  <%= f.input :customer %>
-  <%= f.input :equipment  %>
-  <%= f.input :time  %>
-  <%= f.input :payment_method  %>
-  <%= f.input :devolution_date %>
-  <%= f.input :delivery_address  %>
+  <%= f.association :customer, label: 'Cliente:' %>
+  <%= f.association :equipment, label: 'Equipamento(s):', as: :check_boxes  %>
+  <%= f.association :rental_period, label: 'Prazo de locação:', label_method: :description, value_method: :id %>
+  <%= f.input :payment_method, label: 'Forma de pagamento:'  %>
+  <%= f.input :delivery_address, label: 'Endereço de entrega:'  %>
   <%= f.button :submit, "Criar Contrato" %>
 <% end %>
