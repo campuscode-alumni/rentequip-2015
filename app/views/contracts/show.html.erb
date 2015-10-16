@@ -1,8 +1,8 @@
-<%= @contract.customer.name %>
-<% @contract.equipment.each do |e| %>
+<p>Cliente: <%= @contract.customer.name %></p>
+<p>Equipamento(s): <% @contract.equipment.each do |e| %>
   <%= e.name %>
-<% end %>
-<%= @contract.rental_period.description %>
-<%= @contract.payment_method %>
-<%= @contract.devolution_date %>
-<%= @contract.delivery_address %>
+<% end %></p>
+<p>Prazo de Locação: <%= @contract.rental_period.description %></p>
+<p>Forma de pagamento: <%= @contract.payment_method %></p>
+<p>Data de devolução: <%= @contract.devolution_date %></p>
+<p>Endereço de entrega: <%= @contract.delivery_address %></p>
