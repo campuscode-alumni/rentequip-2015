@@ -18,7 +18,7 @@ feature 'User views equipment data' do
   scenario 'and back to list equipment' do
     equipment1 = create(:equipment)
     equipment2 = create(:equipment, name: 'Martelo')
-    visit 'equipment/1'
+    visit equipment_path(equipment1)
     click_on 'Voltar'
     expect(page).to have_content equipment1.name
     expect(page).to have_content equipment2.name
