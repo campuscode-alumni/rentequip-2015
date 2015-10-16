@@ -3,7 +3,6 @@
   <%= f.association :equipment, label: 'Equipamento(s):', as: :check_boxes  %>
   <%= f.association :rental_period, label: 'Prazo de locação:', label_method: :description, value_method: :id %>
   <%= f.input :payment_method, label: 'Forma de pagamento:'  %>
-  <%= f.input :devolution_date,label: 'Data de devolução:', as: :date, html5: true%>
   <%= f.input :delivery_address, label: 'Endereço de entrega:'  %>
   <%= f.button :submit, "Criar Contrato" %>
 <% end %>

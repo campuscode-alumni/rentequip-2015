@@ -11,12 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151013014303) do
+ActiveRecord::Schema.define(version: 20151014005515) do
 
   create_table "contracts", force: :cascade do |t|
     t.string   "equipment"
     t.string   "payment_method"
-    t.date     "devolution_date"
     t.string   "delivery_address"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
@@ -65,18 +64,35 @@ ActiveRecord::Schema.define(version: 20151013014303) do
     t.string   "equipment"
     t.string   "time"
     t.decimal  "total"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
     t.integer  "equipment_id"
+    t.integer  "rental_period_id"
   end
 
   add_index "prices", ["equipment_id"], name: "index_prices_on_equipment_id"
+  add_index "prices", ["rental_period_id"], name: "index_prices_on_rental_period_id"
 
   create_table "rental_periods", force: :cascade do |t|
     t.string   "description"
     t.integer  "period"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "suppliers", force: :cascade do |t|
+    t.string   "name"
+    t.string   "address"
+    t.string   "cnpj"
+    t.string   "account_manager"
+    t.string   "company_name"
+    t.string   "email"
+    t.string   "phone"
+    t.string   "website"
+    t.string   "municipal_registration"
+    t.string   "state_registration"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
 end

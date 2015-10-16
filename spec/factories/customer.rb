@@ -1,12 +1,12 @@
 FactoryGirl.define do
   factory :customer do
-    name 'Wesley'
-    cpf '123123123456'
-    address 'Rua Pedro'
-    phone '21215454'
-    cell '95957676'
-    rg '415678956'
-    email 'teste@teste.com'
-    birthdate '21/09/2015'
+    name "Mario"
+    cpf "14478548799"
+    address "Alameda Santos 1293"
+    phone '1143556766'
+    cell "11996776655"
+    rg '223456789'
+    email "mario@teste.com"
+    birthdate '12/12/1980'
   end
 end

@@ -1,11 +1,6 @@
-<p class="error"><%= flash[:error] %></p>
 <%= simple_form_for @price do |f| %>
   <%= f.association :equipment, label_method: :name, value_method: :id %>
-  <%= f.input :time, collection: [['3 dias',3],
-                                  ['5 dias',5],
-                                  ['semana',7],
-                                  ['quinzena',15],
-                                  ['mês',30]] %>
+  <%= f.association :rental_period, label_method: :description, value_method: :id %>
   <%= f.input :total %>
   <%= f.button :submit, 'Salvar Preço' %>
 <% end %>

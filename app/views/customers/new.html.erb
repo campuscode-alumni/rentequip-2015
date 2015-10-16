@@ -1,4 +1,5 @@
 <h1>Preencha o Cadastro</h1>
+<p class="error"><%= flash[:error] %></p>
 <%= simple_form_for @customer do |f| %>
   <%= f.input :name, label: 'Nome:' %>
   <%= f.input :cpf, label: 'CPF:' %>

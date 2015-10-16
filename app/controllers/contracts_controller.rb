@@ -18,7 +18,6 @@ class ContractsController < ApplicationController
     params.require(:contract).permit(:customer_id,
                                      :rental_period_id,
                                      :payment_method,
-                                     :devolution_date,
                                      :delivery_address,
                                      {:equipment_ids => []})
   end

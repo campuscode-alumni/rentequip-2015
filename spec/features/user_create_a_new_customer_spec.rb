@@ -20,6 +20,13 @@ feature 'User create a new customer' do
     expect(page).to have_content '11 999999999'
     expect(page).to have_content '11 888888888'
     expect(page).to have_content '01/01/2001'
+  end
 
+  scenario 'unsuccesfuly' do
+    visit new_customer_path
+
+    click_on 'Save'
+
+    expect(page).to have_content 'Warning! All fields are mandatory.'
   end
 end
