@@ -17,6 +17,10 @@ class EquipmentController < ApplicationController
     @equipment = Equipment.find(params[:id])
   end
 
+  def index
+    @equipment = Equipment.all
+  end
+
   private
   def equipment_params
     params.require(:equipment).permit(:name, :mark, :supplier, :price, :model, :asset_number, :purchased_at, :acquisition_price)
