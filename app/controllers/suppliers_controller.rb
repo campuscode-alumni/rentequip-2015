@@ -17,6 +17,11 @@ class SuppliersController < ApplicationController
     @supplier = Supplier.find(params[:id])
   end
 
+  def index
+    @suppliers = Supplier.all
+  end
+
+  private
   def supplier_params
     params.require(:supplier).permit(
       :name,
