@@ -4,8 +4,13 @@ class RentalPeriodsController < ApplicationController
   end
 
   def create
-    @rental_period = RentalPeriod.create(rental_period_params)
-    redirect_to @rental_period
+    @rental_period = RentalPeriod.new(rental_period_params)
+    if @rental_period.save
+      redirect_to @rental_period
+    else
+      flash[:error] = 'Atenção! Todos os campos são obrigatórios'
+      render :new
+    end
   end
 
   def show

@@ -14,4 +14,11 @@ feature "Create Rental Period" do
     expect(page).to have_content rental_period.description
     expect(page).to have_content rental_period.period
   end
+    scenario 'unsuccessfully' do
+      visit new_rental_period_path
+
+      click_button 'Cadastrar período de locação'
+
+      expect(page).to have_content 'Atenção! Todos os campos são obrigatórios'      
+    end
 end
