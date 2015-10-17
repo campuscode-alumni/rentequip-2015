@@ -15,6 +15,7 @@ feature 'User see all contracts' do
 
   scenario 'Click on name and open contract infos' do
     contrato = create(:contract)
+    devolution_date = contrato.rental_period.created_at.to_date + contrato.rental_period.period
 
     visit contracts_path
     click_on(contrato.customer.name)
@@ -22,7 +23,8 @@ feature 'User see all contracts' do
     expect(page).to have_content contrato.customer.name
     expect(page).to have_content contrato.delivery_address
     expect(page).to have_content contrato.payment_method
-    #expect(page).to have_content contrato.rental_period
+    expect(page).to have_content contrato.rental_period.description
+    expect(page).to have_content devolution_date
 
   end
 end
