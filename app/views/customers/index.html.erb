@@ -1,4 +1,8 @@
 <h1>CLIENTES</h1>
-<% @customers.each do |customer| %>
-  <%= link_to customer.name, customer %>
+<%if @customers.any? %>
+  <% @customers.each do |customer| %>
+    <%= link_to customer.name, customer %>
+  <% end %>
+<% else %>
+  <p>Sem clientes cadastrados.</p>
 <% end %>

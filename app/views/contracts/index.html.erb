@@ -1,4 +1,8 @@
 <h1>CONTRATOS</h1>
-<% @contracts.each do |contract| %>
-  <%= link_to contract.customer.name, contract %>
+<%if @contracts.any? %>
+  <% @contracts.each do |contract| %>
+    <%= link_to contract.customer.name, contract %>
+  <% end %>
+<% else %>
+  <p>Sem contratos cadastrados.</p>
 <% end %>

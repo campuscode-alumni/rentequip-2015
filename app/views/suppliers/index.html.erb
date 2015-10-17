@@ -1,4 +1,8 @@
 <h1>FORNECEDORES</h1>
-<% @suppliers.each do |supplier| %>
-  <%= link_to supplier.name, supplier %>
+<%if @suppliers.any? %>
+  <% @suppliers.each do |supplier| %>
+    <%= link_to supplier.name, supplier %>
+  <% end %>
+<% else %>
+  <p>Sem fornecedores cadastrados.</p>
 <% end %>
