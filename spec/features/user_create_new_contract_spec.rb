@@ -2,7 +2,6 @@ require 'rails_helper'
 
 feature 'User create a new contract' do
   scenario 'successfuly' do
-
     customer = create(:customer)
 
     equipment = create(:equipment)
@@ -19,13 +18,13 @@ feature 'User create a new contract' do
     choose 'Á vista'
     fill_in 'Endereço de entrega', with: 'Av Paulista, 1985'
 
-    click_on "Criar Contrato"
+    click_on 'Criar Contrato'
 
     expect(page).to have_content customer.name
     expect(page).to have_content equipment.name
     expect(page).to have_content rental_period.description
-    expect(page).to have_content "Á vista"
-    expect(page).to have_content "Av Paulista, 1985"
+    expect(page).to have_content 'Á vista'
+    expect(page).to have_content 'Av Paulista, 1985'
     expect(page).to have_content devolution_date
   end
 end

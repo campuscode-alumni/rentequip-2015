@@ -1,7 +1,7 @@
-require "rails_helper"
+require 'rails_helper'
 
-feature "Create Rental Period" do
-  scenario "successfully" do
+feature 'Create Rental Period' do
+  scenario 'successfully' do
     visit new_rental_period_path
 
     rental_period = build(:rental_period)
@@ -14,11 +14,11 @@ feature "Create Rental Period" do
     expect(page).to have_content rental_period.description
     expect(page).to have_content rental_period.period
   end
-    scenario 'unsuccessfully' do
-      visit new_rental_period_path
+  scenario 'unsuccessfully' do
+    visit new_rental_period_path
 
-      click_button 'Cadastrar período de locação'
+    click_button 'Cadastrar período de locação'
 
-      expect(page).to have_content 'Atenção! Todos os campos são obrigatórios'      
-    end
+    expect(page).to have_content 'Atenção! Todos os campos são obrigatórios'
+  end
 end

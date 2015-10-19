@@ -1,11 +1,8 @@
-require "rails_helper"
+require 'rails_helper'
 
-feature "Create Equipment" do
-  scenario "successfully" do
-
+feature 'Create Equipment' do
+  scenario 'successfully' do
     visit new_equipment_path
-
-    equipment = Equipment.new
 
     fill_in 'Nome', with: 'Furadeira'
     fill_in 'Marca', with: 'Bosh'
@@ -28,17 +25,13 @@ feature "Create Equipment" do
     expect(page).to have_content 80.00
   end
 
-  scenario "invalid name" do
-    
+  scenario 'invalid name' do
     visit new_equipment_path
-
-    equipment = Equipment.new
 
     fill_in 'Nome', with: ''
 
     click_button 'Cadastrar equipamento'
 
     expect(page).to have_content 'Nome é obrigatório'
-
   end
 end

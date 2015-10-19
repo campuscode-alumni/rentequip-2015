@@ -23,6 +23,6 @@ class ContractsController < ApplicationController
                                      :rental_period_id,
                                      :payment_method,
                                      :delivery_address,
-                                     {:equipment_ids => []})
+                                     equipment_ids: [])
   end
 end
