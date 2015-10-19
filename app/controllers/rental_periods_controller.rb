@@ -17,6 +17,10 @@ class RentalPeriodsController < ApplicationController
     @rental_period = RentalPeriod.find(params[:id])
   end
 
+  def index
+    @rental_period = RentalPeriod.all
+  end
+
   private
 
   def rental_period_params
