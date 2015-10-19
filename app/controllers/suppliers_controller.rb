@@ -8,7 +8,7 @@ class SuppliersController < ApplicationController
     if @supplier.save
       redirect_to @supplier
     else
-      flash.now[:error] = "Warning! Name and CNPJ fields are mandatory."
+      flash.now[:error] = 'Warning! Name and CNPJ fields are mandatory.'
       render 'new'
     end
   end
@@ -22,17 +22,12 @@ class SuppliersController < ApplicationController
   end
 
   private
+
   def supplier_params
     params.require(:supplier).permit(
-      :name,
-      :address,
-      :cnpj,
-      :account_manager,
-      :company_name,
-      :email,
-      :phone,
-      :website,
-      :municipal_registration,
+      :name, :address, :cnpj,
+      :account_manager, :company_name, :email,
+      :phone, :website, :municipal_registration,
       :state_registration
     )
   end

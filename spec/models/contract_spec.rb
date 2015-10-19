@@ -2,9 +2,9 @@ require 'rails_helper'
 
 describe Contract do
   it 'calc rental period' do
+    contract = create(:contract)
 
-    contract = create(:contract, created_at: '2015-11-02')
-
-    expect(contract.devolution_date).to eq(DateTime.new(2015,12,02))
+    expect(contract.devolution_date)
+      .to eq(contract.created_at.to_date + contract.rental_period.period)
   end
 end

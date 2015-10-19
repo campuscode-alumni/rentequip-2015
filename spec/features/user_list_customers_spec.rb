@@ -2,7 +2,6 @@ require 'rails_helper'
 
 feature 'User see all customers' do
   scenario 'successfully' do
-
     customer = create(:customer)
     customer_1 = create(:customer, name: 'Douglas')
     customer_2 = create(:customer, name: 'João')
@@ -23,6 +22,5 @@ feature 'User see all customers' do
     expect(page).to have_content customer.name
     expect(page).to have_content customer.cpf
     expect(page).to have_content customer.address
-
   end
 end

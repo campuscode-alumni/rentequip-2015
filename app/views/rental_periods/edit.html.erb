@@ -1,0 +1,5 @@
+<%= simple_form_for @rental_period do |f| %>
+  <%= f.input :description, label: 'Descrição' %><br>
+  <%= f.input :period, label: 'Período em dias' %><br>
+  <%= f.button :submit, value: 'Editar período de locação' %>
+<% end %>

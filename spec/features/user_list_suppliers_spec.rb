@@ -1,17 +1,16 @@
 require 'rails_helper'
 
 feature 'User see all suppliers' do
-
   scenario 'successffuly' do
-     supplier = create(:supplier)
-     supplier_1 = create(:supplier)
-     supplier_2 = create(:supplier)
+    supplier = create(:supplier)
+    supplier_1 = create(:supplier)
+    supplier_2 = create(:supplier)
 
-     visit suppliers_path
+    visit suppliers_path
 
-     expect(page).to have_content supplier.name
-     expect(page).to have_content supplier_1.name
-     expect(page).to have_content supplier_2.name
+    expect(page).to have_content supplier.name
+    expect(page).to have_content supplier_1.name
+    expect(page).to have_content supplier_2.name
   end
 
   scenario 'Click on name and open supplier infos' do
