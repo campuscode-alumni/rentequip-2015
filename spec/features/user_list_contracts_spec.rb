@@ -19,7 +19,8 @@ feature 'User see all contracts' do
       contrato.rental_period.period
 
     visit contracts_path
-    click_on(contrato.customer.name)
+
+    click_on("#1 - #{contrato.customer.name}")
 
     expect(page).to have_content contrato.customer.name
     expect(page).to have_content contrato.delivery_address
