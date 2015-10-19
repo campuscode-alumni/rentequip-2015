@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  root 'contracts#index'
+
   resources :contracts, only: [:new, :create, :show, :index]
   resources :customers, only: [:new, :create, :show, :index]
   resources :prices, only: [:new, :create, :show]
