@@ -1,0 +1,11 @@
+<%= simple_form_for @equipment do |f|%>
+ <%= f.input :name, label: "Nome: " %>
+ <%= f.input :mark, label: "Marca: " %>
+ <%= f.input :supplier, label: "Fornecedor: " %>
+ <%= f.input :price, label: "Preço de locação: " %>
+ <%= f.input :model, label: "Modelo: " %>
+ <%= f.input :asset_number, label: "Patrimônio: " %>
+ <%= f.input :purchased_at, label: "Data da compra: ", as: :date, html5: true %>
+ <%= f.input :acquisition_price, label: "Preço do equipamento: " %>
+ <%= f.button :submit, message %>
+<%end%>
