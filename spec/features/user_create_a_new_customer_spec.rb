@@ -9,7 +9,7 @@ feature 'User create a new customer' do
     fill_in 'Email', with: 'campus@campus.com'
     fill_in 'Telefone', with: '11 999999999'
     fill_in 'Celular', with: '11 888888888'
-    fill_in 'Data de Nascimento', with: '01/01/2001'
+    fill_in 'Data de nascimento', with: '01/01/2001'
 
     click_on 'Save'
     expect(page).to have_content 'Mario'
