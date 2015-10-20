@@ -1,13 +1,2 @@
 <h1>Preencha o Cadastro</h1>
-<p class="error"><%= flash[:error] %></p>
-<%= simple_form_for @customer do |f| %>
-  <%= f.input :name, label: 'Nome:' %>
-  <%= f.input :cpf, label: 'CPF:' %>
-  <%= f.input :address, label: 'Endereço:' %>
-  <%= f.input :rg, label: 'RG:' %>
-  <%= f.input :phone, label: 'Telefone:' %>
-  <%= f.input :cell, label: 'Celular:' %>
-  <%= f.input :email, label: 'Email:' %>
-  <%= f.input :birthdate, label: 'Data de Nascimento:' %>
-  <%= f.button :submit, 'Save' %>
-<% end %>
+<%= render partial: "form", locals: { label_button: 'Save' }  %>
