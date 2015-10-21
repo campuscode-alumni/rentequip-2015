@@ -21,6 +21,10 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'simple_form'
 
+gem 'tzinfo-data'
+
+gem 'tzinfo'
+
 group :test do
   gem 'capybara'
 end
@@ -40,4 +44,3 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
-
