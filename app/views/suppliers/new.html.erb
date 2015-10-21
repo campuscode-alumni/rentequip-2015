@@ -1,15 +1,2 @@
 <h1>Preencha o Cadastro</h1>
-<p class="error"><%= flash[:error] %></p>
-<%= simple_form_for @supplier do |f| %>
-  <%= f.input :name, label: 'Nome:'%>
-  <%= f.input :address, label: 'Endereço:' %>
-  <%= f.input :cnpj, label: 'CNPJ:' %>
-  <%= f.input :account_manager, label: 'Gerente de Contas:' %>
-  <%= f.input :company_name, label: 'Nome Fantasia:' %>
-  <%= f.input :email, label: 'E-mail:' %>
-  <%= f.input :phone, label: 'Telefone:' %>
-  <%= f.input :website, label: 'Site:' %>
-  <%= f.input :municipal_registration, label: 'Inscrição Municipal:' %>
-  <%= f.input :state_registration, label: 'Inscrição Estadual:' %>
-  <%= f.button :submit, 'Save' %>
-<% end %>
+  <%= render partial: "form", locals: { label_button: 'Criar Fornecedor' } %>

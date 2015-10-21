@@ -6,5 +6,5 @@ Rails.application.routes.draw do
   resources :prices, only: [:new, :create, :show]
   resources :equipment, only: [:new, :create, :show, :index]
   resources :rental_periods, only: [:new, :create, :show, :index, :edit, :update]
-  resources :suppliers, only: [:new, :create, :show, :index]
+  resources :suppliers, only: [:new, :create, :show, :index, :edit, :update]
 end
