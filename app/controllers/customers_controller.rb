@@ -5,9 +5,7 @@ class CustomersController < ApplicationController
 
   def create
     @customer = Customer.new(customer_params)
-    if @customer.save
-      redirect_to @customer
-    end
+    redirect_to @customer if @customer.save
   end
 
   def show

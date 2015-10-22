@@ -8,7 +8,7 @@ class EquipmentController < ApplicationController
     if @equipment.valid?
       redirect_to @equipment
     else
-      flash[:error] = "Nome é obrigatório"
+      flash[:error] = 'Nome é obrigatório'
       render 'new'
     end
   end
@@ -18,7 +18,15 @@ class EquipmentController < ApplicationController
   end
 
   private
+
   def equipment_params
-    params.require(:equipment).permit(:name, :mark, :supplier, :price, :model, :asset_number, :purchased_at, :acquisition_price)
+    params.require(:equipment).permit(:name,
+                                      :mark,
+                                      :supplier,
+                                      :price,
+                                      :model,
+                                      :asset_number,
+                                      :purchased_at,
+                                      :acquisition_price)
   end
 end
