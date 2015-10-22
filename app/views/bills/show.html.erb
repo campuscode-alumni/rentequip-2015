@@ -1,0 +1,11 @@
+<h1>Fatura #<%= @bill.number %></h1>
+<p>Locadora Campus Code</p>
+<%= @bill.contract.id %><br>
+<%= @bill.contract.total_value %><br>
+<% @bill.contract.equipment.each do |e| %>
+  <%= e %>
+<% end %><br>
+<%= @bill.contract.customer.name %><br>
+<%= @bill.contract.customer.address %><br>
+<%= @bill.contract.customer.cpf %><br>
+<%= link_to 'Voltar', contracts_path %>

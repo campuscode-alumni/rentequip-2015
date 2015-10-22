@@ -7,4 +7,5 @@
 <%= @contract.devolution_date %><br>
 <%= @contract.delivery_address %><br>
 <%= @contract.total_value %><br>
+<%= link_to 'Gerar Fatura', [@contract, @contract.bills.build], method: :post %>
 <%= link_to 'Voltar', contracts_path %>
