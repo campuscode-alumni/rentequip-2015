@@ -9,4 +9,5 @@ class Equipment < ActiveRecord::Base
     prices.joins(:rental_period)
       .where(rental_periods: { period: rental_period.period }).last
   end
+  belongs_to :equipment_category
 end

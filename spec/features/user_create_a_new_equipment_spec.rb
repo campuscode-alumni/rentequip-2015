@@ -2,13 +2,14 @@ require 'rails_helper'
 
 feature 'Create Equipment' do
   scenario 'successfully' do
+    equipment_category = create(:equipment_category)
     visit new_equipment_path
 
-    fill_in 'Nome', with: 'Furadeira'
+    select equipment_category.name, from: 'Categoria'
     fill_in 'Marca', with: 'Bosh'
     fill_in 'Fornecedor', with: 'Extra'
     fill_in 'Preço de locação', with: '23.80'
-    fill_in 'Modelo', with: 'R2D2'
+    select equipment_category.model, from: 'Modelo'
     fill_in 'Patrimônio', with: '123546'
     fill_in 'Data da compra', with: '05/10/2015'
     fill_in 'Preço do equipamento', with: '80.00'

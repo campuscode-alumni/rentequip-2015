@@ -14,7 +14,7 @@ class EquipmentCategoriesController < ApplicationController
   end
 
   def show
-     @equipment_category = EquipmentCategory.find(params[:id])
+    @equipment_category = EquipmentCategory.find(params[:id])
   end
 
   def index
@@ -22,7 +22,8 @@ class EquipmentCategoriesController < ApplicationController
   end
 
   private
+
   def equipment_category_params
-    params.require(:equipment_category).permit(:name, :model)
+    params.require(:equipment_category).permit(:name, :model, :mark)
   end
 end
