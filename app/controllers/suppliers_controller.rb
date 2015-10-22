@@ -1,4 +1,6 @@
 class SuppliersController < ApplicationController
+  before_action :set_supplier, only: [:show, :edit, :update]
+
   def new
     @supplier = Supplier.new
   end
@@ -8,20 +10,33 @@ class SuppliersController < ApplicationController
     if @supplier.save
       redirect_to @supplier
     else
-      flash.now[:error] = 'Warning! Name and CNPJ fields are mandatory.'
       render 'new'
     end
   end
 
   def show
-    @supplier = Supplier.find(params[:id])
   end
 
   def index
     @suppliers = Supplier.all
   end
 
+  def edit
+  end
+
+  def update
+    if @supplier.update(supplier_params)
+      redirect_to @supplier
+    else
+      render :edit
+    end
+  end
+
   private
+
+  def set_supplier
+    @supplier = Supplier.find(params[:id])
+  end
 
   def supplier_params
     params.require(:supplier).permit(

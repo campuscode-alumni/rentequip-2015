@@ -2,18 +2,18 @@ require 'rails_helper'
 feature 'User create new supplier' do
   scenario 'successfuly' do
     visit new_supplier_path
-    fill_in 'supplier[name]', with: 'Sei-la Corp'
-    fill_in 'supplier[address]', with: 'Alameda Santos'
-    fill_in 'supplier[cnpj]', with: '123456789/0001'
-    fill_in 'supplier[account_manager]', with: 'Douglas'
-    fill_in 'supplier[company_name]', with: 'Sei-la Corp'
-    fill_in 'supplier[email]', with: 'info@seila.com'
-    fill_in 'supplier[phone]', with: '+55119547844'
-    fill_in 'supplier[website]', with: 'www.seila.com'
-    fill_in 'supplier[municipal_registration]', with: '1234567890'
-    fill_in 'supplier[state_registration]', with: '123456789'
+    fill_in 'Nome', with: 'Sei-la Corp'
+    fill_in 'Endereço', with: 'Alameda Santos'
+    fill_in 'CNPJ', with: '123456789/0001'
+    fill_in 'Gerente de Contas', with: 'Douglas'
+    fill_in 'Compania', with: 'Sei-la Corp'
+    fill_in 'E-mail', with: 'info@seila.com'
+    fill_in 'Telefone', with: '+55119547844'
+    fill_in 'Site', with: 'www.seila.com'
+    fill_in 'Inscrição Municipal', with: '1234567890'
+    fill_in 'Inscrição Estadual', with: '123456789'
 
-    click_on 'Save'
+    click_on 'Criar Fornecedor'
     expect(page).to have_content 'Sei-la Corp'
     expect(page).to have_content 'Alameda Santos'
     expect(page).to have_content '123456789/0001'
@@ -26,10 +26,41 @@ feature 'User create new supplier' do
     expect(page).to have_content '1234567890'
   end
 
-  scenario 'unsuccessfuly' do
+  scenario 'using empty name' do
     visit new_supplier_path
 
-    click_on 'Save'
-    expect(page).to have_content 'Warning! Name and CNPJ fields are mandatory.'
+    fill_in 'Nome', with: ''
+    fill_in 'Endereço', with: 'Alameda Santos'
+    fill_in 'CNPJ', with: '123456789/0001'
+    fill_in 'Gerente de Contas', with: 'Douglas'
+    fill_in 'Compania', with: 'Sei-la Corp'
+    fill_in 'E-mail', with: 'info@seila.com'
+    fill_in 'Telefone', with: '+55119547844'
+    fill_in 'Site', with: 'www.seila.com'
+    fill_in 'Inscrição Municipal', with: '1234567890'
+    fill_in 'Inscrição Estadual', with: '123456789'
+
+    click_button 'Criar Fornecedor'
+
+    expect(page).to have_content 'Atenção! Nome é um campo obrigatório.'
+  end
+
+  scenario 'using empty cnpj' do
+    visit new_supplier_path
+
+    fill_in 'Nome', with: 'Sei-la Corp'
+    fill_in 'Endereço', with: 'Alameda Santos'
+    fill_in 'CNPJ', with: ''
+    fill_in 'Gerente de Contas', with: 'Douglas'
+    fill_in 'Compania', with: 'Sei-la Corp'
+    fill_in 'E-mail', with: 'info@seila.com'
+    fill_in 'Telefone', with: '+55119547844'
+    fill_in 'Site', with: 'www.seila.com'
+    fill_in 'Inscrição Municipal', with: '1234567890'
+    fill_in 'Inscrição Estadual', with: '123456789'
+
+    click_button 'Criar Fornecedor'
+
+    expect(page).to have_content 'Atenção! CNPJ é um campo obrigatório.'
   end
 end
