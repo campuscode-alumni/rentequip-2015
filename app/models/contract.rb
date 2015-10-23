@@ -21,4 +21,8 @@ class Contract < ActiveRecord::Base
     end
     total
   end
+
+  def list_equipment
+    
+  end
 end
