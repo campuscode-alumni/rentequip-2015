@@ -11,7 +11,7 @@ class Equipment < ActiveRecord::Base
       .where(rental_periods: { period: rental_period.period }).last
   end
 
-  def description
+  def to_s
     "#{equipment_category} - Patrimônio: #{asset_number}"
   end
 end

@@ -1,6 +1,6 @@
 <%= @contract.customer.name %><br>
 <% @contract.equipment.each do |e| %>
-  <%= e.description %>
+  <%= e %>
 <% end %><br>
 <%= @contract.rental_period.description %><br>
 <%= @contract.payment_method %><br>

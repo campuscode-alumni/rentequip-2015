@@ -29,7 +29,7 @@ feature 'Create Equipment' do
 
     click_button 'Cadastrar equipamento'
 
-    expect(page).to have_content 'Equipamento é obrigatório'
+    expect(page).to have_content 'Categoria é obrigatória.'
   end
 
   scenario 'click_on Voltar' do
@@ -37,6 +37,6 @@ feature 'Create Equipment' do
     visit equipment_path(equipment.id)
 
     click_on 'Voltar'
-    expect(page).to have_content equipment.description
+    expect(page).to have_content equipment
   end
 end

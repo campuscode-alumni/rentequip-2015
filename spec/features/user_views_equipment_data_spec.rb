@@ -4,7 +4,7 @@ feature 'User views equipment data' do
   scenario 'successfully' do
     equipment = create(:equipment)
     visit equipment_index_path
-    click_on equipment.description
+    click_on equipment
     expect(page).to have_content equipment.equipment_category.name
     expect(page).to have_content equipment.equipment_category.mark
     expect(page).to have_content equipment.equipment_category.model
@@ -20,7 +20,7 @@ feature 'User views equipment data' do
     equipment_category2 = create(:equipment_category, name: 'Martelo')
     equipment2 = create(:equipment, equipment_category: equipment_category2)
     visit equipment_index_path
-    expect(page).to have_content equipment1.description
-    expect(page).to have_content equipment2.description
+    expect(page).to have_content equipment1
+    expect(page).to have_content equipment2
   end
 end

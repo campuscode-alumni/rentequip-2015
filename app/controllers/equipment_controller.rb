@@ -8,7 +8,7 @@ class EquipmentController < ApplicationController
     if @equipment.valid?
       redirect_to @equipment
     else
-      flash[:error] = 'Equipamento é obrigatório'
+      flash[:error] = 'Categoria é obrigatória.'
       render 'new'
     end
   end

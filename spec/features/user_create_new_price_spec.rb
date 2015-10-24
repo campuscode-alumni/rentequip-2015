@@ -7,13 +7,13 @@ feature 'User create prices' do
 
     visit new_price_path
 
-    select(equipment.description, from: 'Equipment')
+    select(equipment, from: 'Equipment')
     select(rental_period.description, from: 'Rental period')
     fill_in 'Total', with: '10.9'
 
     click_on 'Salvar Preço'
 
-    expect(page).to have_content equipment.description
+    expect(page).to have_content equipment
     expect(page).to have_content rental_period.description
     expect(page).to have_content '10.9'
   end

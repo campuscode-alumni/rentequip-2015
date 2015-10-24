@@ -19,10 +19,8 @@ feature 'User create equipment category' do
     visit equipment_category_path(equipment_category1.id)
 
     click_on 'Voltar'
-    expect(page).to have_content "##{equipment_category1.id} -
-                                  #{equipment_category1.name}"
-    expect(page).to have_content "##{equipment_category2.id} -
-                                  #{equipment_category2.name}"
+    expect(page).to have_content equipment_category1
+    expect(page).to have_content equipment_category2
   end
 
   scenario 'Validate name' do

@@ -21,8 +21,8 @@ feature 'User create a new contract' do
     visit new_contract_path
 
     select customer.name, from: 'Cliente'
-    check equipment1.description
-    check equipment2.description
+    check equipment1
+    check equipment2
     select rental_period.description, from: 'Prazo de locação'
     choose 'Á vista'
 
@@ -31,8 +31,8 @@ feature 'User create a new contract' do
     click_on 'Criar Contrato'
 
     expect(page).to have_content customer.name
-    expect(page).to have_content equipment1.description
-    expect(page).to have_content equipment2.description
+    expect(page).to have_content equipment1
+    expect(page).to have_content equipment2
     expect(page).to have_content rental_period.description
     expect(page).to have_content 'Á vista'
     expect(page).to have_content 'Av Paulista, 1985'
