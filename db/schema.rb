@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151018032441) do
+ActiveRecord::Schema.define(version: 20151022001758) do
 
   create_table "contracts", force: :cascade do |t|
     t.string   "equipment"
@@ -48,16 +48,24 @@ ActiveRecord::Schema.define(version: 20151018032441) do
   end
 
   create_table "equipment", force: :cascade do |t|
-    t.string   "name"
-    t.string   "mark"
     t.string   "supplier"
     t.float    "price"
-    t.string   "model"
     t.integer  "asset_number"
     t.date     "purchased_at"
     t.float    "acquisition_price"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.integer  "equipment_category_id"
+  end
+
+  add_index "equipment", ["equipment_category_id"], name: "index_equipment_on_equipment_category_id"
+
+  create_table "equipment_categories", force: :cascade do |t|
+    t.string   "name"
+    t.string   "model"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "mark"
   end
 
   create_table "prices", force: :cascade do |t|
