@@ -1,5 +1,5 @@
 <%= simple_form_for @price do |f| %>
-  <%= f.association :equipment, label_method: :name, value_method: :id %>
+  <%= f.association :equipment, label_method: :description, value_method: :id %>
   <%= f.association :rental_period, label_method: :description, value_method: :id %>
   <%= f.input :total %>
   <%= f.button :submit, 'Salvar Preço' %>
