@@ -5,6 +5,9 @@ class Contract < ActiveRecord::Base
   # rubocop: enable Rails/HasAndBelongsToMany
   belongs_to :rental_period
 
+  validates :customer, :rental_period, :payment_method,
+            :delivery_address, presence: true
+
   def devolution_date
     created_at.to_date + rental_period.period
   end

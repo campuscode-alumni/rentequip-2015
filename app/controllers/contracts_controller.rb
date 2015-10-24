@@ -5,7 +5,12 @@ class ContractsController < ApplicationController
 
   def create
     @contract = Contract.create(contract_params)
-    redirect_to @contract
+    if @contract.save
+      redirect_to @contract
+    else
+      flash.now[:error] = 'Atenção! Todos os campos são obrigatórios'
+      render 'new'
+    end
   end
 
   def show

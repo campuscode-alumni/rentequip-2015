@@ -39,4 +39,12 @@ feature 'User create a new contract' do
     expect(page).to have_content devolution_date
     expect(page).to have_content '21.0'
   end
+
+  scenario 'unssuccesfully' do
+    visit new_contract_path
+
+    click_on 'Criar Contrato'
+
+    expect(page).to have_content 'Atenção! Todos os campos são obrigatórios'
+  end
 end
