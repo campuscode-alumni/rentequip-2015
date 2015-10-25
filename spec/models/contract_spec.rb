@@ -11,7 +11,8 @@ describe Contract do
   it 'calc total value' do
     price = create(:price)
 
-    equipment = create(:equipment, prices: [price])
+    equipment = create(:equipment)
+    equipment.equipment_category.prices = [price]
 
     contract = create(:contract, equipment: [equipment])
 
@@ -21,7 +22,8 @@ describe Contract do
   it 'not should be zero' do
     price = create(:price)
 
-    equipment = create(:equipment, prices: [price])
+    equipment = create(:equipment)
+    equipment.equipment_category.prices = [price]
 
     rental = create(:rental_period, description: 'Quinzenal', period: 15)
 

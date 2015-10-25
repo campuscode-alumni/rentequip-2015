@@ -4,8 +4,8 @@ feature 'User create a new bill' do
   scenario 'successfully' do
     equipment = create(:equipment)
 
-    equipment.prices << build(:price,
-                              equipment: nil)
+    equipment.equipment_category.prices << build(:price, equipment_category:
+                                                  nil)
 
     contract = create(:contract, equipment: [equipment])
 
