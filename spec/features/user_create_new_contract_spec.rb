@@ -50,19 +50,13 @@ feature 'User create a new contract' do
   end
 
   scenario 'with equipment without price' do
-    rental_period = create(:rental_period, description: 'Anual', period: 365)
-
+    rental_period = create(:rental_period)
     equipment = create(:equipment)
-    equipment.prices << create(:price)
-
     customer = create(:customer)
-
-    devolution_date = rental_period.created_at.to_date + rental_period.period
 
     visit new_contract_path
 
-    select customer.name, from: 'Cliente'
-    select rental_period.description, from: 'Prazo de locação'
-    expect(page).not_to have_content 'Furadeira'
+    expect(page).not_to have_content equipment.equipment_category.name
   end
+
 end
