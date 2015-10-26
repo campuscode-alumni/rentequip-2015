@@ -4,6 +4,7 @@ class Contract < ActiveRecord::Base
   has_and_belongs_to_many :equipment
   # rubocop: enable Rails/HasAndBelongsToMany
   belongs_to :rental_period
+  has_many :bills
 
   validates :customer, :rental_period, :payment_method,
             :delivery_address, presence: true
