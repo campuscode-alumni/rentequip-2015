@@ -10,7 +10,9 @@ feature 'User create a new contract' do
                                                   rental_period: rental_period)
 
     equipment_category2 = create(:equipment_category, name: 'Betoneira')
-    equipment2 = create(:equipment, equipment_category: equipment_category2)
+    equipment2 = create(:equipment,
+                        equipment_category: equipment_category2,
+                        asset_number: 12_345)
     equipment2.equipment_category.prices << build(:price,
                                                   equipment_category: nil,
                                                   rental_period: rental_period)
@@ -22,8 +24,8 @@ feature 'User create a new contract' do
     visit new_contract_path
 
     select customer.name, from: 'Cliente'
-    check equipment1
-    check equipment2
+    select equipment2, from: 'contract[equipment_ids][]'
+    select equipment1, from: 'contract[equipment_ids][]'
     select rental_period.description, from: 'Prazo de locação'
     choose 'Á vista'
 

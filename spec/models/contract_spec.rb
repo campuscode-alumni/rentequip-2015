@@ -9,12 +9,20 @@ describe Contract do
   end
 
   it 'calc total value' do
-    price = create(:price)
+    category = create(:equipment_category)
 
-    equipment = create(:equipment)
-    equipment.equipment_category.prices = [price]
+    price = create(:price, equipment_category: category)
 
-    contract = create(:contract, equipment: [equipment])
+    equipment = create(:equipment, equipment_category: category)
+
+    contract = build(:contract, rental_period: price.rental_period)
+
+    rented_equipment = create(:rented_equipment,
+                              contract: contract,
+                              price: price,
+                              equipment: equipment)
+
+    contract.rented_equipments = [rented_equipment]
 
     expect(contract.total_value).to eq(price.total)
   end

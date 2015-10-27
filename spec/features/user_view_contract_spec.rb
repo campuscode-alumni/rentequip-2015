@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'User create a new bill' do
+feature 'user should view contract' do
   scenario 'successfully' do
     category = create(:equipment_category)
 
@@ -19,15 +19,14 @@ feature 'User create a new bill' do
 
     visit contract_path(contract)
 
-    click_on 'Gerar Fatura'
-
-    expect(page).to have_content('Fatura #1')
-    expect(page).to have_content(contract.id)
-    expect(page).to have_content(contract.total_value)
-    expect(page).to have_content(equipment)
-    expect(page).to have_content('Locadora Campus Code')
-    expect(page).to have_content(contract.customer.name)
-    expect(page).to have_content(contract.customer.address)
-    expect(page).to have_content(contract.customer.cpf)
+    expect(page).to have_content contract.customer.name
+    expect(page).to have_content contract.customer.address
+    expect(page).to have_content contract.customer.cpf
+    expect(page).to have_content equipment
+    expect(page).to have_content rented_equipment.price.total
+    expect(page).to have_content equipment.acquisition_price
+    expect(page).to have_content contract.rental_period.description
+    expect(page).to have_content contract.payment_method
+    expect(page).to have_content contract.total_value
   end
 end

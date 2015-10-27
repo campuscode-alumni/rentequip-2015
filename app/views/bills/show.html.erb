@@ -2,8 +2,8 @@
 <p>Locadora Campus Code</p>
 <%= @bill.contract.id %><br>
 <%= @bill.contract.total_value %><br>
-<% @bill.contract.equipment.each do |e| %>
-  <%= e %>
+<% @bill.contract.rented_equipments.each do |rented_equipment| %>
+  <%= rented_equipment.equipment %>
 <% end %><br>
 <%= @bill.contract.customer.name %><br>
 <%= @bill.contract.customer.address %><br>

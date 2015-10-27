@@ -4,8 +4,11 @@ class ContractsController < ApplicationController
   end
 
   def create
-    @contract = Contract.create(contract_params)
+    @contract = Contract.new(contract_params)
     if @contract.save
+      params[:contract][:equipment_ids].each do |id|
+        @contract.rented_equipments.create(equipment_id: id)
+      end
       redirect_to @contract
     else
       flash.now[:error] = 'Atenção! Todos os campos são obrigatórios'
@@ -27,7 +30,6 @@ class ContractsController < ApplicationController
     params.require(:contract).permit(:customer_id,
                                      :rental_period_id,
                                      :payment_method,
-                                     :delivery_address,
-                                     equipment_ids: [])
+                                     :delivery_address)
   end
 end
