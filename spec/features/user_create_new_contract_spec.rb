@@ -5,14 +5,15 @@ feature 'User create a new contract' do
     rental_period = create(:rental_period)
 
     equipment1 = create(:equipment)
-    equipment1.prices << build(:price,
-                               equipment: nil,
-                               rental_period: rental_period)
+    equipment1.equipment_category.prices << build(:price,
+                                                  equipment_category: nil,
+                                                  rental_period: rental_period)
+
     equipment_category2 = create(:equipment_category, name: 'Betoneira')
     equipment2 = create(:equipment, equipment_category: equipment_category2)
-    equipment2.prices << build(:price,
-                               equipment: nil,
-                               rental_period: rental_period)
+    equipment2.equipment_category.prices << build(:price,
+                                                  equipment_category: nil,
+                                                  rental_period: rental_period)
 
     customer = create(:customer)
 

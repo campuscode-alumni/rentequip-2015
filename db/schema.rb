@@ -78,16 +78,15 @@ ActiveRecord::Schema.define(version: 20151026232212) do
   end
 
   create_table "prices", force: :cascade do |t|
-    t.string   "equipment"
     t.string   "time"
     t.float    "total"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-    t.integer  "equipment_id"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
     t.integer  "rental_period_id"
+    t.integer  "equipment_category_id"
   end
 
-  add_index "prices", ["equipment_id"], name: "index_prices_on_equipment_id"
+  add_index "prices", ["equipment_category_id"], name: "index_prices_on_equipment_category_id"
   add_index "prices", ["rental_period_id"], name: "index_prices_on_rental_period_id"
 
   create_table "rental_periods", force: :cascade do |t|
