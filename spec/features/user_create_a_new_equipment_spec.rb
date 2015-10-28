@@ -7,7 +7,6 @@ feature 'Create Equipment' do
 
     select equipment_category, from: 'Equipamento'
     fill_in 'Fornecedor', with: 'Extra'
-    fill_in 'Preço de locação', with: '23.80'
     fill_in 'Patrimônio', with: '123546'
     fill_in 'Data da compra', with: '05/10/2015'
     fill_in 'Preço do equipamento', with: '80.00'
@@ -18,9 +17,8 @@ feature 'Create Equipment' do
     expect(page).to have_content equipment_category.model
     expect(page).to have_content equipment_category.mark
     expect(page).to have_content 'Extra'
-    expect(page).to have_content 23.80
     expect(page).to have_content '123546'
-    expect(page).to have_content '2015-10-05'
+    expect(page).to have_content '05/10/2015'
     expect(page).to have_content 80.00
   end
 

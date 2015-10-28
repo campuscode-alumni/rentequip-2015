@@ -1,0 +1,9 @@
+<%= simple_form_for @equipment do |f|%>
+ <%= f.association :equipment_category, label: 'Equipamento:',
+     label_method: :to_s, value_method: :id %>
+ <%= f.input :supplier, label: "Fornecedor: " %>
+ <%= f.input :asset_number, label: "Patrimônio: " %>
+ <%= f.input :purchased_at, label: "Data da compra: ", as: :date, html5: true %>
+ <%= f.input :acquisition_price, label: "Preço do equipamento: " %>
+ <%= f.button :submit, value: label_button %>
+<%end%>

@@ -1,4 +1,6 @@
 class EquipmentController < ApplicationController
+  before_action :set_equipment, only: [:show, :edit, :update]
+
   def new
     @equipment = Equipment.new
   end
@@ -14,14 +16,29 @@ class EquipmentController < ApplicationController
   end
 
   def show
-    @equipment = Equipment.find(params[:id])
   end
 
   def index
     @equipment = Equipment.all
   end
 
+  def edit
+  end
+
+  def update
+    if @equipment.update(equipment_params)
+      redirect_to @equipment
+    else
+      flash[:error] = 'Atenção! Todos os campos são obrigatórios'
+      render :edit
+    end
+  end
+
   private
+
+  def set_equipment
+    @equipment = Equipment.find(params[:id])
+  end
 
   def equipment_params
     params.require(:equipment).permit(:equipment_category_id, :supplier, :price,
