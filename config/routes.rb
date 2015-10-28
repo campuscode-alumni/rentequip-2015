@@ -10,5 +10,6 @@ Rails.application.routes.draw do
   resources :equipment, only: [:new, :create, :show, :index, :edit, :update]
   resources :rental_periods, only: [:new, :create, :show, :index, :edit, :update]
   resources :suppliers, only: [:new, :create, :show, :index, :edit, :update]
-  resources :equipment_categories, only: [:new, :show, :create, :index]
+  resources :equipment_categories, only: [:new, :show, :create, :index, :edit,
+                                          :update]
 end

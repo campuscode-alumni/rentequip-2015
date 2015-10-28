@@ -1,6 +1,2 @@
-<%= simple_form_for @equipment_category do |f|%>
- <%= f.input :name, label: "Tipo: " %>
- <%= f.input :model, label: "Modelo: " %>
- <%= f.input :mark, label: "Marca: " %>
- <%= f.button :submit, value: "Cadastrar categoria" %>
-<% end %>
+<h1>Cadastrar Categoria</h1>
+<%= render partial: "form", locals: { label_button: 'Cadastrar categoria' }  %>
