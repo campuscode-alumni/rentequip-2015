@@ -1,0 +1,6 @@
+<%= simple_form_for @equipment_category do |f|%>
+ <%= f.input :name, label: "Tipo: " %>
+ <%= f.input :model, label: "Modelo: " %>
+ <%= f.input :mark, label: "Marca: " %>
+ <%= f.button :submit, value: label_button %>
+<% end %>
