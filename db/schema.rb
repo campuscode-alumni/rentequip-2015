@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151026232212) do
+ActiveRecord::Schema.define(version: 20151028212610) do
 
   create_table "bills", force: :cascade do |t|
     t.datetime "created_at",  null: false
@@ -58,7 +58,6 @@ ActiveRecord::Schema.define(version: 20151026232212) do
 
   create_table "equipment", force: :cascade do |t|
     t.string   "supplier"
-    t.float    "price"
     t.integer  "asset_number"
     t.date     "purchased_at"
     t.float    "acquisition_price"

@@ -9,7 +9,6 @@ feature 'User views equipment data' do
     expect(page).to have_content equipment.equipment_category.mark
     expect(page).to have_content equipment.equipment_category.model
     expect(page).to have_content equipment.supplier
-    expect(page).to have_content equipment.price
     expect(page).to have_content equipment.asset_number
     expect(page).to have_content equipment.purchased_at
     expect(page).to have_content equipment.acquisition_price
