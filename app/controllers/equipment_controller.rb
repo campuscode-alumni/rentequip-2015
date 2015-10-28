@@ -24,14 +24,14 @@ class EquipmentController < ApplicationController
     render json: @equipment.to_json(only: [:id],include: {equipment_category: {only:[],methods: :to_s}})
   end
 
+  def with_price
+    @equipment = Equipment.joins(:prices)
+      .where(prices: {rental_period_id: params[:rental_period_id]})
+    render json: @equipment.to_json(only:[:id, :asset_number])
+  end
+
   def index
     @equipment = Equipment.all
-
-
-    @equipment = Equipment.joins(:prices).where(prices: {rental_period_id: params[:rental_period_id]})
-    respond_to do |format|
-        format.js
-    end
   end
 
   def edit
