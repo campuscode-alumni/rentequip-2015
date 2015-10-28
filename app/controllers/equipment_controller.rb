@@ -32,6 +32,12 @@ class EquipmentController < ApplicationController
 
   def index
     @equipment = Equipment.all
+
+
+    @equipment = Equipment.joins(:prices).where(prices: {rental_period_id: params[:rental_period_id]})
+    respond_to do |format|
+        format.js
+    end
   end
 
   def edit
