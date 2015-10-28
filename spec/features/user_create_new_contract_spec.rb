@@ -59,4 +59,6 @@ feature 'User create a new contract' do
     expect(page).not_to have_content equipment.equipment_category.name
   end
 
+  scenario 'with equipment '
+
 end

@@ -1,7 +1,7 @@
 <%= simple_form_for @contract do |f| %>
   <%= f.association :customer, label: 'Cliente:' %>
-  <%= f.association :equipment, collection: @equipment, label: 'Equipamento(s):',
-      label_method: :to_s, as: :check_boxes  %>
+  <%= f.association :equipment, label: 'Equipamento(s):',
+      label_method: :to_s %>
   <%= f.association :rental_period,
       label: 'Prazo de locação:',
       label_method: :description, value_method: :id %>
