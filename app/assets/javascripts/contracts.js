@@ -8,7 +8,7 @@ $( document ).ready(function() {
     $.getJSON("/equipment/rental_period/"+ id_rental_period +".json", function(result){
       var equipment_options = $('#contract_equipment_ids');
       $.each(result, function(item, element) {
-        equipment_options.append($("<option />").val(element.id).text(element.asset_number));
+        equipment_options.append($("<option />").val(element.id).text(element.equipment_category.to_s));
       });
     });
   });

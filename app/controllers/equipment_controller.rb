@@ -19,9 +19,9 @@ class EquipmentController < ApplicationController
   end
 
   def with_price
-    @equipment = Equipment.joins(:prices)
+    @equipment = Equipment.joins(:prices).uniq
       .where(prices: {rental_period_id: params[:rental_period_id]})
-    render json: @equipment.to_json(only:[:id, :asset_number])
+    render json: @equipment.to_json(only: [:id],include: {equipment_category: {only:[],methods: :to_s}})
   end
 
   def index
