@@ -50,7 +50,7 @@ feature 'User create a new contract' do
   end
 
   scenario 'equipment with different rental period', :js => true do
-    customer = create(:customer)
+    create(:customer)
 
     rental_period1 = create(:rental_period)
     rental_period2 = create(:rental_period, description: 'Anual', period: 365)
@@ -59,7 +59,7 @@ feature 'User create a new contract' do
     equipment.equipment_category.prices << build(:price, equipment_category: nil, rental_period: rental_period2)
 
     visit new_contract_path
-    
+
     select rental_period1.description, from: 'Prazo de locação:'
 
     expect(page).not_to have_content equipment.to_s

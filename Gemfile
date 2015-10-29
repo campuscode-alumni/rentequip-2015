@@ -23,12 +23,14 @@ gem 'simple_form'
 gem 'auto_increment'
 group :test do
   gem 'capybara'
+  gem 'database_cleaner'
 end
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console gem 'byebug'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'pry-rails'
+  gem 'pry-byebug'
   gem 'simplecov'
   gem 'rubocop', require: false
   gem 'awesome_print'
