@@ -32,6 +32,7 @@ group :development, :test do
   gem 'simplecov'
   gem 'rubocop', require: false
   gem 'awesome_print'
+  gem 'selenium-webdriver'
 end
 
 group :development do

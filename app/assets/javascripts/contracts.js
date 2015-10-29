@@ -1,5 +1,5 @@
 $( document ).ready(function() {
-  $('#contract_equipment_ids').html("");
+
 
   $('#contract_rental_period_id').change(function(){
     var id_rental_period = $('#contract_rental_period_id option:selected').val();

@@ -22,9 +22,9 @@ feature 'User create a new contract' do
     visit new_contract_path
 
     select customer.name, from: 'Cliente'
-    check equipment1
-    check equipment2
     select rental_period.description, from: 'Prazo de locação'
+    select equipment1
+    select equipment2
     choose 'Á vista'
 
     fill_in 'Endereço de entrega', with: 'Av Paulista, 1985'
@@ -49,16 +49,19 @@ feature 'User create a new contract' do
     expect(page).to have_content 'Atenção! Todos os campos são obrigatórios'
   end
 
-  scenario 'with equipment without price' do
-    rental_period = create(:rental_period)
-    equipment = create(:equipment)
+  scenario 'equipment with different rental period', :js => true do
     customer = create(:customer)
 
+    rental_period1 = create(:rental_period)
+    rental_period2 = create(:rental_period, description: 'Anual', period: 365)
+
+    equipment = create(:equipment)
+    equipment.equipment_category.prices << build(:price, equipment_category: nil, rental_period: rental_period2)
+
     visit new_contract_path
+    
+    select rental_period1.description, from: 'Prazo de locação:'
 
-    expect(page).not_to have_content equipment.equipment_category.name
+    expect(page).not_to have_content equipment.to_s
   end
-
-  scenario 'with equipment '
-
 end

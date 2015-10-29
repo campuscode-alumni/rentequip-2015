@@ -1,10 +1,10 @@
 <%= simple_form_for @contract do |f| %>
   <%= f.association :customer, label: 'Cliente:' %>
-  <%= f.association :equipment, label: 'Equipamento(s):',
-      label_method: :to_s %>
   <%= f.association :rental_period,
       label: 'Prazo de locação:',
       label_method: :description, value_method: :id %>
+  <%= f.association :equipment, label: 'Equipamento(s):',
+      label_method: :to_s %>
   <%= f.input :payment_method,
       collection: ['Á vista', 'Faturado', 'Boleto', 'Débito', 'Crédito'],
       as: :radio_buttons, label: 'Forma de pagamento'%>
