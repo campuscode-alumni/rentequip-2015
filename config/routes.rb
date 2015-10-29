@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :contracts, only: [:new, :create, :show, :index] do
     resources :bills, only: [:create, :show]
+    get '/delivery_receipts', :to => 'delivery_receipts#show'
   end
 
   resources :customers, only: [:new, :create, :show, :index, :edit, :update]
@@ -12,4 +13,5 @@ Rails.application.routes.draw do
   resources :suppliers, only: [:new, :create, :show, :index, :edit, :update]
   resources :equipment_categories, only: [:new, :show, :create, :index, :edit,
                                           :update]
+
 end
