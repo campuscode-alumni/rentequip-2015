@@ -3,8 +3,9 @@ Rails.application.routes.draw do
 
   resources :contracts, only: [:new, :create, :show, :index] do
     resources :bills, only: [:create, :show]
-    get '/delivery_receipts', :to => 'delivery_receipts#show'
   end
+
+  get 'contracts/:id/delivery_receipt', :to => 'contracts#delivery_receipt', as: 'delivery_receipt'
 
   resources :customers, only: [:new, :create, :show, :index, :edit, :update]
   resources :prices, only: [:new, :create, :show]

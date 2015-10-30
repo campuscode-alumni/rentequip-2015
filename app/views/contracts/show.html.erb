@@ -8,5 +8,5 @@
 <%= @contract.delivery_address %><br>
 <%= @contract.total_value %><br>
 <%= link_to 'Gerar Fatura', [@contract, @contract.bills.build], method: :post %>
-<%= link_to 'Gerar Recibo de Entrega', @contract, method: :get %>
+<%= link_to 'Gerar Recibo de Entrega', delivery_receipt_path(@contract.id)  %>
 <%= link_to 'Voltar', contracts_path %>

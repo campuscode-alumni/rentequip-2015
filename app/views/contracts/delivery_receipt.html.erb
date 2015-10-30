@@ -1,0 +1,10 @@
+<h1>Recibo de Entrega</h1>
+<%= "Eu, #{@contract.customer.name}, inscrito sob o CPF #{@contract.customer.cpf}" %>
+<%= "declaro ter recebido os equipamentos abaixo" %>
+<%= "no endereço #{@contract.delivery_address}," %>
+<%= "de acordo com o contrato emitido em #{@contract.created_at}," %>
+<%= "pelo período de #{@contract.rental_period.description}:" %>
+<% @contract.equipment.each do |e| %>
+  <%= e.to_s %>
+<% end %><br>
+<%= "São Paulo, #{Time.now.to_s(:written_date)}" %>

@@ -21,6 +21,12 @@ class ContractsController < ApplicationController
     @contracts = Contract.all
   end
 
+  def delivery_receipt
+    @contract = Contract.find(params[:id])
+  end
+
+
+
   private
 
   def contract_params
