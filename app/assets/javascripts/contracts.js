@@ -1,5 +1,5 @@
 $( document ).ready(function() {
-
+  $('#contract_equipment_ids').html("");
 
   $('#contract_rental_period_id').change(function(){
     var id_rental_period = $('#contract_rental_period_id option:selected').val();
@@ -8,7 +8,9 @@ $( document ).ready(function() {
     $.getJSON("/equipment/rental_period/"+ id_rental_period +".json", function(result){
       var equipment_options = $('#contract_equipment_ids');
       $.each(result, function(item, element) {
-        equipment_options.append($("<option />").val(element.id).text(element.equipment_category.to_s));
+        console.log(element.to_s);
+        equipment_options.append($("<option />").val(element.id).text(element.to_s));
+        console.log(equipment_options.html());
       });
     });
   });

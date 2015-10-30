@@ -34,7 +34,9 @@ group :development, :test do
   gem 'simplecov'
   gem 'rubocop', require: false
   gem 'awesome_print'
+  gem 'poltergeist'
   gem 'selenium-webdriver'
+  gem 'capybara-webkit'
 end
 
 group :development do

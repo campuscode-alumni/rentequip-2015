@@ -49,19 +49,38 @@ feature 'User create a new contract' do
     expect(page).to have_content 'Atenção! Todos os campos são obrigatórios'
   end
 
-  scenario 'equipment with different rental period', :js => true do
-    create(:customer)
-
+  scenario 'with different rental periods', js: true do
     rental_period1 = create(:rental_period)
     rental_period2 = create(:rental_period, description: 'Anual', period: 365)
 
-    equipment = create(:equipment)
-    equipment.equipment_category.prices << build(:price, equipment_category: nil, rental_period: rental_period2)
+    equipment_category = create(:equipment_category, name: 'Betoneira')
+    equipment = create(:equipment, equipment_category: equipment_category)
+    equipment.equipment_category.prices << build(:price,
+                                                 equipment_category: nil,
+                                                 rental_period: rental_period1)
+
+    equipment_category2 = create(:equipment_category, name: 'Martelo')
+    equipment2 = create(:equipment, equipment_category: equipment_category2)
+    equipment2.equipment_category.prices << build(:price,
+                                                  equipment_category: nil,
+                                                  rental_period: rental_period2)
+
+    equipment3 = create(:equipment)
 
     visit new_contract_path
+    expect(page).not_to have_content equipment.to_s
+    expect(page).not_to have_content equipment2.to_s
+    expect(page).not_to have_content equipment3.to_s
 
     select rental_period1.description, from: 'Prazo de locação:'
 
+    expect(page).to have_select('Equipamento(s):', with_options: [equipment.to_s])
+    expect(page).not_to have_content equipment2.to_s
+    expect(page).not_to have_content equipment3.to_s
+
+    select rental_period2.description, from: 'Prazo de locação:'
     expect(page).not_to have_content equipment.to_s
+    expect(page).to have_select('Equipamento(s):', with_options: [equipment2.to_s])
+    expect(page).not_to have_content equipment3.to_s
   end
 end

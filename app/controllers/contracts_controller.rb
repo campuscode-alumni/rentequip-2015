@@ -1,7 +1,7 @@
 class ContractsController < ApplicationController
   def new
     @contract = Contract.new
-    @equipment = Equipment.joins(:prices)    
+    @equipment = Equipment.joins(:prices)
   end
 
   def create
