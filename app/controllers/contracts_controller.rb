@@ -25,8 +25,6 @@ class ContractsController < ApplicationController
     @contract = Contract.find(params[:id])
   end
 
-
-
   private
 
   def contract_params

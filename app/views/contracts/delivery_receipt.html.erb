@@ -3,8 +3,9 @@
 <%= "declaro ter recebido os equipamentos abaixo" %>
 <%= "no endereço #{@contract.delivery_address}," %>
 <%= "de acordo com o contrato emitido em #{@contract.created_at}," %>
-<%= "pelo período de #{@contract.rental_period.description}:" %>
+<%= "pelo período de: #{@contract.rental_period.period} dias." %><br>
+<h3>Equipamentos:</h3>
 <% @contract.equipment.each do |e| %>
-  <%= e.to_s %>
+  <%= "##{e.to_s}" %><br>
 <% end %><br>
 <%= "São Paulo, #{Time.now.to_s(:written_date)}" %>
