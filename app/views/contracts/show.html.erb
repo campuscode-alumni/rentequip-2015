@@ -1,11 +1,35 @@
-<%= @contract.customer.name %><br>
-<% @contract.equipment.each do |e| %>
-  <%= e %>
-<% end %><br>
-<%= @contract.rental_period.description %><br>
-<%= @contract.payment_method %><br>
-<%= @contract.devolution_date %><br>
-<%= @contract.delivery_address %><br>
-<%= @contract.total_value %><br>
+<h2>Dados do cliente:</h2>
+<dl>
+  <dt>Nome / Razão Social</dt>
+  <dd><%= @contract.customer.name %></dd>
+  <dt>Endereço:</dt>
+  <dd><%= @contract.customer.address %></dd>
+  <dt>CPF:</dt>
+  <dd><%=@contract.customer.cpf %></dd>
+</dl>
+<h2>Equipamento(s):</h2>
+<dl>
+  <% @contract.rented_equipments.each do |rented_equipment| %>
+    <dt>Equipamento:</dt>
+    <dd><%= rented_equipment.equipment %></dd>
+    <dt>Valor de aquisiçao:</dt>
+    <dd><%= rented_equipment.equipment.acquisition_price %></dd>
+    <dt>Valor de locação:</dt>
+    <dd><%= rented_equipment.price.total %></dd>
+  <% end %>
+</dl>
+<h2>Demais informações:</h2>
+<dl>
+  <dt>Prazo de locação:</dt>
+  <dd><%= @contract.rental_period.description %></dd>
+  <dt>Forma de pagamento:</dt>
+  <dd><%= @contract.payment_method %></dd>
+  <dt>Data de devolução:</dt>
+  <dd><%= @contract.devolution_date %><dd>
+  <dt>Endereço de entrega:</dt>
+  <dd><%= @contract.delivery_address %></dd>
+  <dt>Valor total:</dt>
+  <dd><%= @contract.total_value %></dd>
+</dl>
 <%= link_to 'Gerar Fatura', [@contract, @contract.bills.build], method: :post %>
 <%= link_to 'Voltar', contracts_path %>

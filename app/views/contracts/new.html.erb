@@ -1,7 +1,8 @@
 <%= simple_form_for @contract do |f| %>
   <%= f.association :customer, label: 'Cliente:' %>
-  <%= f.association :equipment, label: 'Equipamento(s):',
-      label_method: :to_s, as: :check_boxes  %>
+      <select name="contract[equipment_ids][]" id="contract_equipment_ids" multiple>
+      <%= options_from_collection_for_select(Equipment.all, :id, :to_s) %>
+      </select>
   <%= f.association :rental_period,
       label: 'Prazo de locação:',
       label_method: :description, value_method: :id %>

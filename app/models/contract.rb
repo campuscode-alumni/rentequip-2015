@@ -1,8 +1,6 @@
 class Contract < ActiveRecord::Base
   belongs_to :customer
-  # rubocop: disable Rails/HasAndBelongsToMany
-  has_and_belongs_to_many :equipment
-  # rubocop: enable Rails/HasAndBelongsToMany
+  has_many :rented_equipments
   belongs_to :rental_period
   has_many :bills
 
@@ -15,8 +13,8 @@ class Contract < ActiveRecord::Base
 
   def total_value
     total = 0
-    equipment.each do |e|
-      price = e.equipment_category.price_by_rental_period(rental_period)
+    rented_equipments.each do |rented_equipment|
+      price = rented_equipment.price
       total += price.total if price
     end
     total

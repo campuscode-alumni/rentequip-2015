@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151028212610) do
+ActiveRecord::Schema.define(version: 20151028224644) do
 
   create_table "bills", force: :cascade do |t|
     t.datetime "created_at",  null: false
@@ -34,14 +34,6 @@ ActiveRecord::Schema.define(version: 20151028212610) do
 
   add_index "contracts", ["customer_id"], name: "index_contracts_on_customer_id"
   add_index "contracts", ["rental_period_id"], name: "index_contracts_on_rental_period_id"
-
-  create_table "contracts_equipment", force: :cascade do |t|
-    t.integer "equipment_id"
-    t.integer "contract_id"
-  end
-
-  add_index "contracts_equipment", ["contract_id"], name: "index_contracts_equipment_on_contract_id"
-  add_index "contracts_equipment", ["equipment_id"], name: "index_contracts_equipment_on_equipment_id"
 
   create_table "customers", force: :cascade do |t|
     t.string   "name"
@@ -94,6 +86,18 @@ ActiveRecord::Schema.define(version: 20151028212610) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  create_table "rented_equipments", force: :cascade do |t|
+    t.integer  "contract_id"
+    t.integer  "equipment_id"
+    t.integer  "price_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "rented_equipments", ["contract_id"], name: "index_rented_equipments_on_contract_id"
+  add_index "rented_equipments", ["equipment_id"], name: "index_rented_equipments_on_equipment_id"
+  add_index "rented_equipments", ["price_id"], name: "index_rented_equipments_on_price_id"
 
   create_table "suppliers", force: :cascade do |t|
     t.string   "name"
