@@ -3,7 +3,7 @@ class Contract < ActiveRecord::Base
   has_many :rented_equipments
   belongs_to :rental_period
   has_many :bills
-
+  has_one :delivery_receipt
   validates :customer, :rental_period, :payment_method,
             :delivery_address, presence: true
 

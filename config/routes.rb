@@ -5,6 +5,9 @@ Rails.application.routes.draw do
     resources :bills, only: [:create, :show]
   end
 
+  get 'contracts/:id/delivery_receipt', :to => 'contracts#delivery_receipt',
+       as: 'delivery_receipt'
+
   resources :customers, only: [:new, :create, :show, :index, :edit, :update]
   resources :prices, only: [:new, :create, :show]
   resources :equipment, only: [:new, :create, :show, :index, :edit, :update]
@@ -12,4 +15,5 @@ Rails.application.routes.draw do
   resources :suppliers, only: [:new, :create, :show, :index, :edit, :update]
   resources :equipment_categories, only: [:new, :show, :create, :index, :edit,
                                           :update]
+
 end

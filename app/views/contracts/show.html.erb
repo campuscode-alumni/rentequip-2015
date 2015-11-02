@@ -32,4 +32,5 @@
   <dd><%= @contract.total_value %></dd>
 </dl>
 <%= link_to 'Gerar Fatura', [@contract, @contract.bills.build], method: :post %>
+<%= link_to 'Gerar Recibo de Entrega', delivery_receipt_path(@contract.id)  %>
 <%= link_to 'Voltar', contracts_path %>
